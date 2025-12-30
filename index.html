@@ -4,273 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devi Ganga Bhavani Akula | Portfolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="./style.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Background Blobs (Ambient Animation) -->
+    <div class="blob-cont">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
     <!-- NAVBAR -->
-    <nav>
-        <div class="container">
-            <div class="logo"><img src="./ChatGPT Image Dec 28, 2025, 06_04_05 PM.png" alt="DGB"></div>
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <!-- Replace src with your image path -->
+                <img src="./profie photo.jpg"  alt="DGB" class="logo-img">
+                Devi Ganga Bhavani
+            </a>
+            
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <!-- Dark Mode Toggle -->
-                <li><i class="fas fa-moon theme-toggle" id="theme-btn"></i></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#achievements" onclick="closeMenu()">Achievements</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li><i class="fas fa-moon theme-btn" id="theme-toggle"></i></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <!-- Mobile Theme Toggle -->
-                <i class="fas fa-moon theme-toggle" id="mobile-theme-btn" style="display:none;"></i> 
-                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <div class="container hero-content hidden">
-            <div class="profile-container">
-                <!-- PLACEHOLDER IMAGE - REPLACE WITH YOURS -->
-                <img src="./profie photo.jpg" alt="Devi Ganga" class="profile-pic">
+        <div class="container hero-content" data-aos="fade-up">
+            <div class="profile-wrapper">
+                <!-- Replace src with your image path -->
+                <img src="./profie photo.jpg" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400'" alt="Devi Ganga" class="profile-img">
             </div>
-
-            <h1>Devi Ganga Bhavani Akula</h1>
-            <h2>Full Stack Developer | AI & Prompt Engineering</h2>
-            <p class="hero-summary">
+            <h1 class="hero-title">Devi Ganga Bhavani Akula</h1>
+            <h2 class="hero-subtitle">I am a <span id="typewriter"></span></h2>
+            <p class="hero-desc">
                 Building scalable web applications and AI solutions. Hands-on experience in Machine Learning and Prompt Engineering.
             </p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn">View Projects</a>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT SECTION -->
     <section id="about">
-        <div class="container">
-            <h2 class="section-title hidden">About Me</h2>
-            <div class="glass-card about-content hidden">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-panel about-text">
                 <p>
-                    I am a Computer Science Engineering student at Aditya Engineering College (2023–2027) with a CGPA of 8.44.
+                    I am a Computer Science Engineering student at <strong>Aditya Engineering College (2023–2027)</strong> with a CGPA of <strong>8.44</strong>.
                     <br><br>
                     I specialize in <strong>Full Stack Development</strong> and <strong>AI/ML</strong>. 
-                    I've honed my skills through internships at Technical Hub and IBM, solving over 400+ coding problems across various platforms. 
+                    I've honed my skills through internships at Technical Hub and IBM, solving over <strong>400+ coding problems</strong> across various platforms. 
                     I am passionate about turning complex problems into efficient, beautiful interface designs.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS SECTION (Fixed Navigation) -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title hidden">Technical Skills</h2>
-            <div class="skills-grid">
-                
-                <div class="glass-card skill-category hidden">
-                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
-                    <div class="skill-tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React Native</span><span>Bootstrap</span>
-                    </div>
+            <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+            
+            <!-- Rolling Ticker Container -->
+            <div class="skills-wrapper" data-aos="zoom-in">
+                <div class="skills-track">
+                    <!-- Original List -->
+                    <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                    <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-item"><i class="fab fa-react"></i> React Native</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-item"><i class="fas fa-brain"></i> Machine Learning</div>
+                    <div class="skill-item"><i class="fas fa-robot"></i> Prompt Engineering</div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+                    
+                    <!-- Duplicate List for Infinite Loop -->
+                    <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                    <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-item"><i class="fab fa-react"></i> React Native</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-item"><i class="fas fa-brain"></i> Machine Learning</div>
                 </div>
-
-                <div class="glass-card skill-category hidden">
-                    <h3><i class="fas fa-server"></i> Backend</h3>
-                    <div class="skill-tags">
-                        <span>Java</span><span>Python</span><span>C/C++</span><span>SQL</span><span>OS</span>
-                    </div>
-                </div>
-
-                <div class="glass-card skill-category hidden">
-                    <h3><i class="fas fa-brain"></i> AI & ML</h3>
-                    <div class="skill-tags">
-                        <span>Scikit-learn</span><span>Pandas</span><span>Prompt Engineering</span><span>Model Training</span>
-                    </div>
-                </div>
-
-                <div class="glass-card skill-category hidden">
-                    <h3><i class="fas fa-tools"></i> Tools</h3>
-                    <div class="skill-tags">
-                        <span>Git/GitHub</span><span>MySQL</span><span>MongoDB</span><span>VS Code</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS SECTION -->
     <section id="projects">
         <div class="container">
-            <h2 class="section-title hidden">Featured Projects</h2>
-            <div class="project-grid">
-
+            <h2 class="section-title" data-aos="fade-down">Featured Projects</h2>
+            <div class="projects-grid">
+                
                 <!-- Project 1 -->
-                <div class="glass-card project-card hidden">
+                <div class="project-card" data-aos="fade-up">
                     <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" alt="Salary Prediction">
+                        <img src="https://cdn.slidesharecdn.com/ss_thumbnails/salarypredictionpptfinal15-4-24-240418130335-cc462f0e-thumbnail.jpg?width=640&height=640&fit=bounds" alt="Salary Prediction">
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>Employee Salary Prediction</h3>
-                        <p class="tech-stack">Python • Pandas • ML</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">ML</span>
+                        </div>
                         <p>Machine Learning model to predict salary categories based on experience and role with high accuracy.</p>
-                        <a href="https://employee-salary-prediction-f3nvt5hsfbjdpuwv4ucjvx.streamlit.app/" class="btn btn-outline" style="align-self: flex-start; padding: 8px 20px; font-size:0.8rem;">View </a>
-                        <a href="https://github.com/deviakula2006/Employee_Salary_Prediction.git" class="btn btn-outline" style="align-self: flex-start; padding: 8px 20px; font-size:0.8rem;">View Code </a>
+                        <div class="project-links">
+                            <a href="https://employee-salary-prediction-f3nvt5hsfbjdpuwv4ucjvx.streamlit.app/" target="_blank" class="btn-sm">Live</a>
+                            <a href="https://github.com/deviakula2006/Employee_Salary_Prediction.git" target="_blank" class="btn-sm outline">Code</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="glass-card project-card hidden">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600" alt="Timora AI">
+                        <img src="./Screenshot 2025-12-30 033807.jpg"  alt="Portfolio">
                     </div>
-                   
-
-                <!-- Project 3 -->
-                <div class="glass-card project-card hidden">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600" alt="Portfolio">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio</h3>
-                        <p class="tech-stack">HTML5 • CSS3 • JS</p>
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+                        <div class="tech-tags">
+                            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+                        </div>
                         <p>The website you are looking at! Featuring glassmorphism, parallax effects, and dark/light modes.</p>
-                        <a href="#" class="btn btn-outline" style="align-self: flex-start; padding: 8px 20px; font-size:0.8rem;">Live</a>
-                        <a href="" class="btn btn-outline" style="align-self: flex-start; padding: 8px 20px; font-size:0.8rem;">View Code </a>
+                        <div class="project-links">
+                            <a href="#" class="btn-sm">Live</a>
+                            <a href="https://github.com/deviakula2006/my-Portfolio.git" target="_blank" class="btn-sm outline">Code</a>
+                        </div>
                     </div>
                 </div>
-
+              
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600" alt="Smart-Calculator">
+                    </div>
+                    <div class="project-content">
+                        <h3>CalNova Smart-calclator</h3>
+                        <div class="tech-tags">
+                            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+                        </div>
+                        <p>Built a responsive calculator application implementing core JavaScript logic for basic mathematical operations.</p>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/deviakula2006/CalcNova-Smart-Calculator.git" target="_blank" class="btn-sm outline">Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE TIMELINE -->
+    <!-- EXPERIENCE SECTION -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title hidden">Experience</h2>
+            <h2 class="section-title" data-aos="fade-up">My Journey</h2>
             <div class="timeline">
                 
-                <div class="timeline-item left hidden">
-                    <div class="glass-card timeline-content">
-                        <span class="timeline-date">May 2025 – June 2025</span>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">May 2025 – June 2025</span>
                         <h3>Full Stack Intern</h3>
                         <h4>Technical Hub Pvt. Ltd.</h4>
-                        <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted)">Developed React Native mobile components and ensured responsive layouts.</p>
+                        <p>Developed React Native mobile components and ensured responsive layouts.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item right hidden">
-                    <div class="glass-card timeline-content">
-                        <span class="timeline-date">18/06/2025 to 30/07/2025 </span>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">June 2025 – July 2025</span>
                         <h3>AI & ML Intern</h3>
                         <h4>IBM Virtual Internship</h4>
-                        <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted)">Built end-to-end ML prediction models and analyzed datasets using Python.</p>
+                        <p>Built end-to-end ML prediction models and analyzed datasets using Python.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item left hidden">
-                    <div class="glass-card timeline-content">
-                        <span class="timeline-date">01/10/2025 - 31/10/2025</span>
-                        <h3>Web Development Intern</h3>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">Oct 2025</span>
+                        <h3>Web Dev Intern</h3>
                         <h4>ShadowFox</h4>
-                        <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted)">Created personal branding websites and learned core web technologies.</p>
+                        <p>Created personal branding websites and learned core web technologies.</p>
                     </div>
                 </div>
-                 <div class="timeline-item right hidden">
-                    <div class="glass-card timeline-content">
-                        <span class="timeline-date">2025-2026</span>
+
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">2025 – Present</span>
                         <h3>Campus Ambassador</h3>
                         <h4>Unstop</h4>
-                        <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted)">Responsible for promoting Unstop initiatives on campus and encouraging student participation.</p>
+                        <p>Promoting Unstop initiatives on campus and encouraging student participation.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ACHIEVEMENTS & LOGOS -->
+    <!-- ACHIEVEMENTS SECTION -->
     <section id="achievements">
         <div class="container">
-            <h2 class="section-title hidden">Coding Profiles</h2>
+            <h2 class="section-title" data-aos="fade-up">Coding Profiles</h2>
             <div class="achievements-grid">
                 
-                <!-- LeetCode -->
-                <a href="#" target="_blank" class="glass-card card-small hidden">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/leetcode.svg" class="platform-logo" alt="LeetCode" style="filter: brightness(0) invert(1);"> 
-                    <!-- Note: Invert filter is used to make black SVG white in dark mode. JS handles toggle below. -->
+                <a href="https://leetcode.com/u/Devi_Akula/" target="_blank" class="achievement-card" data-aos="zoom-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/leetcode.svg" class="platform-icon" alt="LeetCode">
                     <div>
                         <h4>LeetCode</h4>
-                        <p>275+ Problems Solved</p>
+                        <p>300+ Solved</p>
                     </div>
                 </a>
 
-                <!-- CodeChef -->
-                <a href="#" target="_blank" class="glass-card card-small hidden">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/codechef.svg" class="platform-logo" alt="CodeChef" style="filter: brightness(0) invert(1);">
+                <a href="https://www.codechef.com/dashboard" target="_blank" class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/codechef.svg" class="platform-icon" alt="CodeChef">
                     <div>
                         <h4>CodeChef</h4>
-                        <p>Rating 1297 (130+ Solved)</p>
+                        <p>Rating 1338</p>
                     </div>
                 </a>
 
-                <!-- HackerRank -->
-                <a href="#" target="_blank" class="glass-card card-small hidden">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/hackerrank.svg" class="platform-logo" alt="HackerRank" style="filter: brightness(0) invert(1);">
+                <a href="https://www.hackerrank.com/profile/akuladevigangab1" target="_blank" class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/hackerrank.svg" class="platform-icon" alt="HackerRank">
                     <div>
                         <h4>HackerRank</h4>
                         <p>5★ Python, 4★ C</p>
                     </div>
                 </a>
 
-                <!-- Generic Achievement -->
-                <div class="glass-card card-small hidden">
-                    <i ><img src="./WhatsApp Image 2025-12-28 at 8.15.55 PM.jpeg"></i>
-                    <div>
-                        <h4>Unstop Igniters Club</h4>
-                        <p>Role : President </p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title hidden">Let's Connect</h2>
-            <div class="glass-card contact-box hidden">
-                <form>
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button class="btn" type="submit" style="width:100%">Send Message</button>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="glass-panel contact-wrapper" data-aos="flip-up">
+                <form onsubmit="sendMail(event)">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-input" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" class="form-input" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                 </form>
-                <div style="margin-top: 30px; display:flex; justify-content:center; gap:20px;">
-                    <a href="#" style="font-size:1.5rem;"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" style="font-size:1.5rem;"><i class="fab fa-github"></i></a>
-                    <a href="#" style="font-size:1.5rem;"><i class="fas fa-envelope"></i></a>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/devi-ganga-bhavani-akula-192065291/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/deviakula2006" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:devigangabhavani@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Devi Ganga Bhavani Akula. Built with code.</p>
+        <p>© 2025 Devi Ganga Bhavani Akula. Built with creativity.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
-   
+    <!-- Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
- <script src="./script.js"></script>
 </html>
